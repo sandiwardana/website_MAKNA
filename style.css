@@ -1,0 +1,156 @@
+:root{--bg:#071018;--card:#0b0f12;--gold:#c59b3b;--muted:#aab3bd;--glass:rgba(255,255,255,0.03);--maxw:1100px}
+*{box-sizing:border-box}body{margin:0;font-family:Inter, Poppins, system-ui, sans-serif;background:linear-gradient(180deg,#050608 0%,#071018 80%);color:#eef2f6}
+.container{max-width:var(--maxw);margin:0 auto;padding:24px}
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(0,0,0,0.6),transparent);backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.02)}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo-img{height:150px}
+.nav a{color:var(--muted);margin-left:20px;text-decoration:none}
+.nav-toggle{display:none;background:none;border:0;color:var(--muted);font-size:20px}
+.btn{padding:10px 14px;border-radius:10px;font-weight:600}
+.btn-primary{background:linear-gradient(90deg,var(--gold),#f2c96b);color:#081017;border:0}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+/* Hero */
+.hero{position:relative;padding:80px 0}
+.hero-inner{display:grid;grid-template-columns:1fr 480px;gap:28px;align-items:center}
+.eyebrow{color:var(--gold);font-weight:700;letter-spacing:1px}
+.hero-title{font-size:44px;margin:12px 0}
+.hero-sub{color:var(--muted);max-width:56ch}
+.hero-img{width:100%;border-radius:14px;box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2),transparent)}
+
+/* Cards & sections */
+.quick-features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.card{background:var(--card);padding:18px;border-radius:12px}
+.feature h3{margin:8px 0}
+
+/* Page layout */
+.page{padding:48px 0}
+.page-title{font-size:28px;margin-bottom:18px}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.masonry{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.masonry-item{width:100%;border-radius:10px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review-card{background:var(--card);padding:18px;border-radius:12px}
+.contact-form input, .contact-form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+.form-errors{background:#3b0b0b;padding:10px;border-radius:8px;color:#ffdede}
+.form-success{background:#073b1a;padding:12px;border-radius:8px;color:#bfffd8}
+
+/* Footer */
+.site-footer{padding:18px 0;border-top:1px solid rgba(255,255,255,0.02);margin-top:36px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+
+/* Animations */
+.fade-up{opacity:0;transform:translateY(12px);transition:all 600ms cubic-bezier(.2,.9,.2,1)}
+.fade-up.in-view{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero-inner{grid-template-columns:1fr}
+  .quick-features{grid-template-columns:repeat(1,1fr)}
+  .reviews-grid{grid-template-columns:repeat(1,1fr)}
+  .masonry{grid-template-columns:repeat(1,1fr)}
+  .nav a{display:none}
+  .nav-toggle{display:block}
+}
+/* === Splash Screen Style (Logo Besar & Efek Emas) === */
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  animation: fadeOut 1s ease 2.5s forwards;
+}
+
+/* ini bagian logo nya */
+#splash img {
+  width: 500px; /* ukuran gede */
+  max-width: 80vw; /* biar responsive */
+  height: auto;
+  animation: fadeIn 1.5s ease forwards, shimmer 3s linear infinite;
+  filter: drop-shadow(0 0 25px gold);
+}
+
+/* animasi masuk dan keluar */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* efek shimmer emas */
+@keyframes shimmer {
+  0% { filter: drop-shadow(0 0 15px gold); }
+  50% { filter: drop-shadow(0 0 30px goldenrod); }
+  100% { filter: drop-shadow(0 0 15px gold); }
+}
+
+/* buat cegah scroll waktu splash tampil */
+body.hidden {
+  overflow: hidden;
+}
+
+.feature-section img {
+  width: 60%; /* ubah ukuran gambar biar proporsional */
+  max-width: 400px; /* batas maksimal biar gak terlalu gede di layar besar */
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+.contact-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: #f8f8f8;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  color: #111;
+  margin-bottom: 30px;
+}
+
+#igOrderForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+#igOrderForm input,
+#igOrderForm textarea {
+  width: 80%;
+  max-width: 400px;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#igOrderForm button {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#igOrderForm button:hover {
+  background-color: #444;
+}
+
+
